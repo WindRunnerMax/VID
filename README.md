@@ -1,4 +1,5 @@
 # 抖音无水印视频下载
+* 2019-5-18 测试可用
 * 带图形界面 可直接 python pyinstall.py 打包.exe
 * 使用了PYQT 注意安装包依赖
 * 入口文件是 Vibrato.py
