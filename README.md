@@ -5,6 +5,6 @@
 * 入口文件是 Vibrato.py
 ----
 * 测试链接:  
-#在抖音，记录美好生活##王者荣耀 杀队友你是认真的 http://v.douyin.com/2VPWE2/ 复制此链接，打开【抖音短视频】，直接观看视频！  
+#在抖音，记录美好生活##测试使用 https://v.douyin.com/gWc3BC 复制此链接，打开【抖音短视频】，直接观看视频！  
 ![show](https://github.com/WindrunnerMax/VID/blob/master/info/1.jpg)
 ----
