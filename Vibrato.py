@@ -13,7 +13,7 @@ from PyQt5.QtWidgets import *
 from PyQt5 import QtWidgets,QtGui
 from form import Ui_Form
 
-VUrl = "https://v.douyin.com/gWc3BC"
+VUrl = "https://v.douyin.com/nMuYtN/"
 
 VHEADERS = {
 'User-Agent':'Mozilla/5.0 (Linux; U; Android 5.1.1; zh-cn; MI 4S Build/LMY47V) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.146 Mobile Safari/537.36 XiaoMi/MiuiBrowser/9.1.3',
@@ -22,8 +22,7 @@ VHEADERS = {
 "accept-language":"en-US,en;q=0.8,zh-CN;q=0.6,zh;q=0.4",
 "cache-control":"no-cache"
 }
-VH1 = "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36 OPR/58.0.3135.65"
-VH2 = "Mozilla/5.0 (Linux; U; Android 5.1.1; zh-cn; MI 4S Build/LMY47V) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.146 Mobile Safari/537.36 XiaoMi/MiuiBrowser/9.1.3"
+
 
 class Vibrato(QDialog,Ui_Form):
     """docstring for Vibrato"""
@@ -49,13 +48,11 @@ class Vibrato(QDialog,Ui_Form):
         },session
 
     def Download(self,info,session):
-        VHEADERS['User-Agent'] = VH2
         videoBin = session.get( info['addr'],timeout=5, headers = VHEADERS );
         filename = info['id'];
         with open('%s.mp4' % (filename),'wb') as fb: # 将下载的图片保存到对应的文件夹中
             fb.write(videoBin.content)
             self.label.setText("下载完成")
-        VHEADERS['User-Agent'] = VH1
 
     def run(self):
         self.label.setText("稍等")
