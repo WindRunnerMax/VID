@@ -6,7 +6,7 @@ import requests
 
 HEADERS = {
     "accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-    "accept-encoding":"gzip, deflate, sdch, br",
+    "accept-encoding":"deflate",
     "accept-language":"en-US,en;q=0.8,zh-CN;q=0.6,zh;q=0.4",
     "cache-control":"no-cache",
     'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.92 Safari/537.36',
@@ -26,10 +26,12 @@ class Vibrato():
     def __get_real_url(self):
         session = requests.Session()
         req = session.get(self.url , timeout = 5 , headers = self.headers)
-        videoInfo = re.findall( r'playAddr: "([\S]*?)"',req.text)[0]
-        vid = re.findall( r'vid=([\S]*?)&',videoInfo)[0]
-        addr = videoInfo.replace("/playwm/","/play/")
-        return vid,addr,session
+        vid = req.url.split("/")[5]
+        videoInfo = session.get("https://www.iesdouyin.com/web/api/v2/aweme/iteminfo/?item_ids=" + vid,
+            timeout = 5 , headers = self.headers)
+        playAddr = re.findall(r'https://aweme.snssdk.com/aweme[\S]*?"',videoInfo.text)[0][:-1]
+        parsedAddr = playAddr.replace("/playwm/","/play/")
+        return vid,parsedAddr,session
 
     def __download(self, vid, info, session):
         self.headers['user-agent'] = H1
@@ -45,4 +47,4 @@ class Vibrato():
             vid,info,session = self.__get_real_url()
             return self.__download(vid, info, session)
         except Exception as e:
-            return str(e)
+            raise e
