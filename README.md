@@ -2,7 +2,7 @@
 抖音无水印视频下载，如果觉得不错，点个`star`吧 😃
 
 ## 描述
-* `2020-07-01`修正可用
+* `2020-10-16`修正可用
 * 执行`PyInstall.py`可打包`exe`可执行文件
 * `GUI`编写使用了`PyQt5`，运行时注意安装依赖
 * `Form.py`即为构建`GUI`界面的代码，可按需改动
@@ -16,4 +16,4 @@
 ```
 
  
-![show](https://github.com/WindrunnerMax/VID/blob/master/info/1.jpg?raw=true)
+![show](https://cdn.jsdelivr.net/gh/WindrunnerMax/VID@master/info/1.jpg)
